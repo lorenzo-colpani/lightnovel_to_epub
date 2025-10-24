@@ -54,10 +54,10 @@ def add_chapter(book, url):
 original_url = "https://wetriedtls.com/series/a-regressors-tale-of-cultivation/chapter-"
 
 # starts from 364 until 731. Make books of 25 chapters each
-all_chapters = list(range(364, 732))
+all_chapters = list(range(714, 732))
 for i in tqdm(range(0, len(all_chapters), 25)):
     epub = Epub(
-        f"A Regressor's Tale of Cultivation - Chapters {all_chapters[i]} to {all_chapters[i + 24]}",
+        f"A Regressor's Tale of Cultivation - Chapters {all_chapters[i]} to {all_chapters[min(i + 24, len(all_chapters) - 1)]}",
     )
     for j in range(i, min(i + 25, len(all_chapters))):
         chapter_url = f"{original_url}{all_chapters[j]}"
